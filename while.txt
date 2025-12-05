@@ -1,0 +1,80 @@
+ARMSTRONG:
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String []args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt(), temp = n, res = 0, cube = 0;
+
+		while (temp>0){
+			int last = temp%10;
+			cube = last*last*last;
+			res = res + cube;
+			temp = temp/10;
+		}
+		if (res == n){
+			System.out.println("Its an Armstrong number");
+		} else {
+			System.out.println("Its not and Armstrong number");
+		}
+	}
+}
+
+
+PRIME NUMBERS:
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String []args) {
+		Scanner s = new Scanner(System.in);
+		System.out.print("Enter your number: ");
+		int n = s.nextInt(), i = 1, count = 0;
+
+		while (i<=n){
+			if (n%i == 0){
+				count++;
+			}
+			i++;
+		}
+
+		if (n == 1){
+			System.out.println("1 is neither prime nor composite.");
+		} else if (count == 2){
+			System.out.println(n + " is prime.");
+		} else {
+			System.out.println(n + " is not prime.");
+		}
+
+	}
+}
+
+PERFECT NUMBER:
+
+import java.util.Scanner;
+
+public class Main {
+	private static Scanner s;
+	public static void main(String []args) {
+		int i, num, sum = 0;
+		s = new Scanner(System.in);
+		System.out.print("\nPlease enter any number: ");
+		num = s.nextInt();
+		i = 1;
+
+		do {
+			if (num%i == 0) {
+				sum += i;
+			}
+			i++;
+		} while (i < num);
+
+		if (sum == num) {
+			System.out.println(num + " is a perfect number");
+		} else {
+			System.out.println(num + " is not a perfect number");
+		}
+
+	}
+}
