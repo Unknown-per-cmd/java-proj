@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Main {
+	int n, x, k, series_num;
+	Main (int number_of_terms) {
+		n = number_of_terms;
+		series_num = 1;
+	}
+	Main (int number_of_terms, int value_of_x) {
+		n = number_of_terms;
+		x = value_of_x;
+		series_num = 2;
+	}
+	Main(int number_of_terms, int value_of_x, int power) {
+		n = number_of_terms;
+		x = value_of_x;
+		k = power;
+		series_num = 3;
+	}
+	double calculate() {
+		double sum = 0.0, power_term;
+		int pact = 1;
+
+		if (series_num == 1) {
+			for (int i = 1; i <= n; i++) {
+				pact *= i;
+				sum += pact;
+			}
+		} else if (series_num == 2){
+			for (int i = 1; i <= n; i++) {
+				power_term = Math.pow(x, i);
+				pact *= i;
+				sum += (pact / power_term);
+			}
+		} else {
+			for (int i = 1; i <= n; i++) {
+				power_term = Math.pow(x, k);
+				pact *= i;
+				sum += (pact / power_term);
+			}
+		}
+		return sum;
+
+	}
+	public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		System.out.print("Enter the number of terms for the series: ");
+		int a = s.nextInt();
+		System.out.print("Enter the value of x for the series: ");
+		int b = s.nextInt();
+		System.out.print("Enter the value of k for the series: ");
+		int c = s.nextInt();
+		Main series_1 = new Main(a);
+		Main series_2 = new Main(a, b);
+		Main series_3 = new Main(a, b, c);
+		double result1, result2, result3;
+		result1 = series_1.calculate();
+		result2 = series_2.calculate();
+		result3 = series_3.calculate();
+		System.out.println("Sum of series 1 is: " + result1);
+		System.out.println("Sum of series 2 is: " + result2);
+		System.out.println("Sum of series 3 is: " + result3);
+	}
+}

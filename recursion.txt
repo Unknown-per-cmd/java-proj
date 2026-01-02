@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+	public static int factorial(int k) {
+		if (k <= 1) {
+			return 1;
+		} else {
+			return k*factorial(k-1);
+		}
+	}
+
+	public static int fibonacci(int n) {
+		if (n == 1 || n == 2) {
+			return 1;
+		} else {
+			return (fibonacci(n-1) + fibonacci(n-2));
+		}
+	}
+	public static int sumDigits(int n) {
+		if (n == 0) {
+			return 0;
+		} else {
+			return n % 10 + sumDigits(n/10);
+		}
+	}
+	public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		System.out.print("\nEnter the number for finding the factorial: ");
+		int n = s.nextInt();
+		int fact = factorial(n);
+		System.out.println("Factorial of the given number " + n + " is: " + fact);
+		System.out.print("\nEnter the number of finding the sum of fibonacci series: ");
+		int term = s.nextInt();
+		int fib = fibonacci(term);
+		System.out.println("Sum of fibonacci series of the given number " + term + " is: " + fib);
+		System.out.print("\nEnter the number of finding the sum of digits: ");
+		int sum = s.nextInt();
+		int sd = sumDigits(sum);
+		System.out.println("Sum of digits of the given number " + sum + " is: " + sd);
+	}
+}

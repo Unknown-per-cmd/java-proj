@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+class Office {
+	int emNum, salary;
+	String emName;
+}
+
+class Teaching extends Office {
+	String designation;
+	void setData() {
+		Scanner s = new Scanner(System.in);
+		System.out.print("Enter the employee number: ");
+		emNum = s.nextInt();
+		System.out.print("Enter the employee name: ");
+		emName = s.next();
+		System.out.print("Enter the employee salary: ");
+		salary = s.nextInt();
+		System.out.print("Enter the employee designation: ");
+		designation = s.next();
+	}
+
+	void getData() {
+		System.out.println("Employee name: " + emName + "\t\tEmployee number: " + emNum);
+		System.out.println("Employee salary: " + salary + "\t\tEmployee designation: " + designation);
+	}
+}
+
+class nonTeaching extends Office {
+	String designation;
+	void setData() {
+		Scanner s = new Scanner(System.in);
+		System.out.print("Enter the employee number: ");
+		emNum = s.nextInt();
+		System.out.print("Enter the employee name: ");
+		emName = s.next();
+		System.out.print("Enter the employee salary: ");
+		salary = s.nextInt();
+		System.out.print("Enter the employee designation: ");
+		designation = s.next();
+	}
+
+	void getData() {
+		System.out.println("Employee name: " + emName + "\t\tEmployee number: " + emNum);
+		System.out.println("Employee salary: " + salary + "\t\tEmployee designation: " + designation);
+	}
+}
+
+public class Main {
+	public static void main(String[] args) {
+		Teaching t1 = new Teaching();
+		nonTeaching nt1 = new nonTeaching();
+		System.out.println("Data about teaching class is: \n");
+		t1.setData();
+		t1.getData();
+		
+		System.out.println("\n\nData about non-teaching class is: \n");
+		nt1.setData();
+		nt1.getData();
+	}
+}

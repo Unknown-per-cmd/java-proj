@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		int maxLen = 0, len = 0;
+		String words = "", maxWords = "";
+		Scanner s = new Scanner(System.in);
+		System.out.print("Enter a string: ");
+		String st = s.nextLine();
+		st = st.trim();
+		st += " ";
+		
+		for (int i = 0; i < st.length(); i++) {
+			char x = st.charAt(i);
+			if (x != ' ') {
+				words += x;
+			} else {
+				len = words.length();
+				if (len > maxLen) {
+					maxWords = words;
+					maxLen = len;
+				}
+				words = "";
+			}
+		}
+		System.out.println("The longest word is " + maxWords + ". The length of word is " + maxLen);
+	}
+}
